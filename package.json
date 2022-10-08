@@ -1,0 +1,27 @@
+{
+  "name": "app-cicd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "mocha test/**test.js",
+    "test-exp": "mocha test/helloworld.test.js --reporter mocha-junit-reporter --reporter-options mochaFile=./test/results/test-results.xml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ciffer0/node-app-cicd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ciffer0/node-app-cicd/issues"
+  },
+  "homepage": "https://github.com/ciffer0/node-app-cicd#readme",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "express": "^4.18.1",
+    "mocha": "^10.0.0",
+    "mocha-junit-reporter": "^2.1.0"
+  }
+}

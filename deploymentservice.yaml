@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-cicd
+spec:
+  type: NodePort
+  selector:
+    app: node-app-cicd
+  ports:
+  - port: 3000
+    targetPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-cicd-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-app-cicd
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: node-app-cicd
+    spec:
+      containers:
+      - name: node-app-cicd
+        image: ciffer0815/node-app-cicd
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+      restartPolicy: Always
+status: {}
+
