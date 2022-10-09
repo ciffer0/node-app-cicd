@@ -13,7 +13,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-cicd-app
+  name: node-app-cicd
 spec:
   replicas: 2
   selector:

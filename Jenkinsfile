@@ -34,6 +34,7 @@ node {
 
     stage('Deploy to K8s') {
       sh "kubectl apply -f ./deploymentservice.yaml"
+      sh "kubectl set image deployment node-app-cicd node-app-cicd=ciffer0815/node-app-cicd:latest"
     }
 
 }
