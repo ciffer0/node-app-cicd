@@ -12,7 +12,7 @@ node {
 
         /* Build the docker image */
         app = docker.build("ciffer0815/node-app-cicd")
-
+      }
     }
 
     stage('Test image') {
