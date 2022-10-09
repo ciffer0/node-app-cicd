@@ -8,11 +8,7 @@ node {
     }
 
     stage('Build image') {
-      dir('nodeApp') {
-
-        /* Build the docker image */
         app = docker.build("ciffer0815/node-app-cicd")
-      }
     }
 
     stage('Test image') {
@@ -21,15 +17,15 @@ node {
         app.withRun{ c ->
           sh "docker exec  ${c.id} npm install"
           sh "docker exec  ${c.id} npm run test-exp"
-          sh "mkdir -p nodeApp/test/results/"
-          sh "docker cp ${c.id}:/code/test/results/test-results.xml nodeApp/test/results/test-results.xml"
+          sh "mkdir -p test/results/"
+          sh "docker cp ${c.id}:/code/test/results/test-results.xml test/results/test-results.xml"
         }
     }
 
     stage('Publish test results') {
 
       /*Save test results in Jenkins history */
-        junit 'nodeApp/test/results/test-results.xml'
+        junit 'test/results/test-results.xml'
     }
 
 
