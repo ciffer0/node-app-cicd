@@ -24,10 +24,10 @@ spec:
   template:
     metadata:
       labels:
-        app: node-app-cicd
+        app: cicd-node-application
     spec:
       containers:
-      - name: node-app-cicd
+      - name: cicd-node-application
         image: jenkinsproject/cicd-node-application
         imagePullPolicy: Always
         resources:
