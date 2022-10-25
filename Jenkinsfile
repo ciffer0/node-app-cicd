@@ -6,7 +6,7 @@ node {
     }
 
     stage('Build image') {
-        app = docker.build("ciffer0815/node-app-cicd")
+        app = docker.build("jenkinsproject/cicd-node-application")
     }
 
     stage('Test image') {
@@ -34,7 +34,7 @@ node {
 
     stage('Deploy to K8s') {
       sh "kubectl apply -f ./deploymentservice.yaml"
-      sh "kubectl set image deployment node-app-cicd node-app-cicd=ciffer0815/node-app-cicd:latest"
+      sh "kubectl set image deployment cicd-node-application cicd-node-application=jenkinsproject/cicd-node-application:latest"
     }
 
 }
