@@ -17,7 +17,7 @@ describe('Hello World Tests',() => {
       const myHostname = 'superHostName'
       let helloString = helloworld.buildHello(myHostname)
       expect(helloString).to.be.a('string');
-      expect(helloString).to.equal(`Hello world from host: ${myHostname}, wassup!`)
+      expect(helloString).to.equal(`Hello world from host: ${myHostname}, wassup!!`)
     })
   })
 })
